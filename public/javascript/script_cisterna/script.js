@@ -52,7 +52,7 @@ function listar_placas(){
 */
                     button_editar.setAttribute('class','btn btn-primary');
                     button_editar.setAttribute('id','editar');
-                    button_editar.setAttribute('href','index.php?editar='+iterator['id']);
+                    button_editar.setAttribute('href','index.php?cisterna&editar='+iterator['id']);
                    
                     button_editar.textContent = "EDITAR";
                     //evento_editar(button_editar);
@@ -88,7 +88,7 @@ function listar_placas(){
         }
 
     });
-    xhr.open("GET","index.php?listar");
+    xhr.open("GET","index.php?cisterna&listar");
     xhr.send();
 }
 function clear_table(){
@@ -121,7 +121,7 @@ function evento_eliminar(button_eliminar){
             
         });
 
-        ajax_eliminar.open('GET','index.php?eliminar='+dato.target.value,true);
+        ajax_eliminar.open('GET','index.php?cisterna&eliminar='+dato.target.value,true);
         ajax_eliminar.send();
     })
 }
@@ -145,7 +145,7 @@ function registro_placas(){
             modal_mensaje(datos.target.responseText);
         }
     });
-    http_request.open("POST","index.php?registro&guardar",true);
+    http_request.open("POST","index.php?cisterna&registro&guardar",true);
     http_request.send(formulario);
 
 }
@@ -155,7 +155,7 @@ function registro_placas(){
 function guardar_editar(action_url){
     var ajax = new XMLHttpRequest();
     var formulario_editar = new FormData(document.getElementById("form_editar"));
-
+  
     console.log(action_url);
 
     ajax.addEventListener("readystatechange",function(evento){

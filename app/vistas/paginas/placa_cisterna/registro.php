@@ -26,7 +26,7 @@ include RUTA_APP.'/vistas/inc/inc_cisterna/modal_mensaje.php';
                     <tr>
                         <td><label for="largo">LARGO</label></td>
                         <td>
-                            <input type="text" id="largo" name="largo" value="12" class="text">
+                            <input type="text" name="largo" id="largo" value="12" class="text">
                         </td>
                     </tr>
                     <tr>
@@ -48,7 +48,7 @@ include RUTA_APP.'/vistas/inc/inc_cisterna/modal_mensaje.php';
                     </tr>
                     <tr>
                         <td colspan = 2>
-                            <a href="index.php" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25)">
+                            <a href="index.php?cisterna" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25)">
                             RETURN TO MAIN</a>
                         </td>
                     </tr>

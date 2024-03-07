@@ -20,16 +20,27 @@ class Tracto_querys{
         return $resultado;
     }
 
+    public function eliminar_placa_tracto($id){
+
+        $resultado = "";
+        $conexion = BASE::connection();
+        $resultado = "CONEXION EXITOSO";
+
+        $prepare_statement = $conexion->prepare("DELETE FROM Tracto WHERE Tracto_id = ?");
+        $prepare_statement->execute(array($id));
+        $resultado = $prepare_statement->rowCount();
+        return $resultado;
+
+    }
+
     public function registro_placa_tracto($placa_tracto = []){
         /*
         insert into Tracto (Tracto_placa ,Tracto_largo,Tracto_ancho,Tracto_alto)values(?,?,?,?);
         */
- 
-        
+
         $conexion = Base::connection(); 
         $preparar_statement = $conexion->prepare('insert into Tracto(Tracto_placa,Tracto_largo,Tracto_ancho,Tracto_alto,Tracto_veh)values(?,?,?,?,?)');
-        
-        
+     
         $preparar_statement->execute(array(
             $placa_tracto['placa'],
             $placa_tracto['largo'],
@@ -40,6 +51,31 @@ class Tracto_querys{
         
         return $preparar_statement->rowCount();  
         
+    }
+    public function search_placa_tracto($id){
+        $resultados = [];
+        $conexion = Base::connection();
+        $prepare_statement = $conexion->prepare('SELECT *  FROM Tracto WHERE Tracto_id = ?');
+        $prepare_statement->execute(array($id));
+        $resultados = $prepare_statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultados;
+    }
+    public function editar_placa_tracto($id, $datos){
+        $conexion = Base::connection();
+
+        $sql = 'UPDATE Tracto SET Tracto_placa = ?, Tracto_largo = ?, Tracto_ancho = ?, Tracto_alto = ?, Tracto_veh = ? WHERE Tracto_id = ?';
+        $prepare_statement = $conexion->prepare($sql);
+        $prepare_statement->execute(array(
+                $datos['placa'],
+                $datos['largo'],
+                $datos['ancho'],
+                $datos['alto'],
+                $datos['config_veh'],
+                $id
+            ));
+        $resultado = $prepare_statement->rowCount();
+        return $resultado;
     }
 }
 ?>

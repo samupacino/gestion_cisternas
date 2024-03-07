@@ -3,19 +3,6 @@
     include RUTA_APP.'/vistas/inc/inc_tracto/header.php';
     include RUTA_APP.'/vistas/inc/inc_tracto/mensaje_error.php';
 ?>
-<div>
-    <button id="test">PRUEBA</button>
-</div>
-
-<table class="was-validated">
-<form action="" class="was-validated">
-
-        <input type="text" class="form-control" id="validationTextarea" placeholder="Required example textarea" required></input>
-  </form>  
-</table>
-
-
-
 <div id="pagina_registro_container" class="font-monospace border border-4 bg-info-subtle">
         <div>
             <p class="fs-4">REGISTRO DE PLACA TRACTO</p>
@@ -27,7 +14,7 @@
                     <tr>
                         <td><label for="placa">PLACA</label></td>
                         <td>
-                            <input type="text" id="placa validationTextarea" name="placa"  class="text" >
+                            <input type="text" id="placa" name="placa"  class="text" >
                         </td>
                     </tr>
                     <tr>
@@ -51,17 +38,17 @@
                     <tr>
                         <td><label for="config_veh">CONFIG</label></td>
                         <td>
-                            <input type="text" id="nombre" name="config_veh" value="T3S3" class="text">
+                            <input type="text" id="config_veh" name="config_veh" value="T3S3" class="text">
                         </td>
                     </tr>
                     <tr>
                         <td colspan = 2>
-                            <input type="submit" id="enviar" value="GUARDAR" class="btn btn-primary">
+                            <button type="submit" id="enviar" value="GUARDAR" class="btn btn-primary">GUARDAR</button>
                         </td>
                     </tr>
                     <tr>
                         <td colspan = 2>
-                            <a href="index.php" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25)">
+                            <a href="index.php?tracto" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25)">
                             RETURN TO MAIN</a>
                         </td>
                     </tr>
@@ -75,48 +62,51 @@
 ?>
 
 <script>
-    var formulario_registro = document.getElementById('formulario_placas');
+    window.addEventListener('load',function(e){
 
-    formulario_registro.addEventListener('submit',function(evento){
-        evento.preventDefault();
-        var datos_tracto = document.getElementsByClassName('text');
+        var formulario_registro = document.getElementById('formulario_placas');
 
-        if(validar_campos()){
-            registro_placa_tracto();
-            clear_form();
-        }
-       
-    });
+        formulario_registro.addEventListener('submit',function(evento){
+            evento.preventDefault();
+            var datos_tracto = document.getElementsByClassName('text');
 
-    var test = document.getElementById('test');
-    test.addEventListener('click',function(){
-        //clear_form();
-        console.log(validar_campos());
-    });
-
-    function clear_form(){
-
-        var clear_inputs = document.getElementsByClassName('text');
-
-        for(var i = 0 ; i < clear_inputs.length ; i++){
-            clear_inputs[i].value = "";
-        } 
-    }
-
-    function validar_campos(){
-        let validar = true;
-
-        var cadena_texto = document.getElementsByClassName('text');
-
-        for(var i = 0 ; i < cadena_texto.length ; i++){
-
-            if(cadena_texto[i].value.trim().length <= 0 && !cadena_texto[i].value.trim()){
-                validar = false;
+            if(validar_campos()){
+                registro_placa_tracto();
+                clear_form();
             }
+        
+        });
+        
+        var test = document.getElementById('formulario_placas');
+        for(var i = 0 ; i < test.elements.length ; i++){
+            if(test.elements[i].tagName == 'INPUT'){
+                console.log(test.elements[i].getAttribute('type'));
+            }
+        }
 
-        }    
-        return validar;
-    }
+        function clear_form(){
 
+            var clear_inputs = document.getElementsByClassName('text');
+
+            for(var i = 0 ; i < clear_inputs.length ; i++){
+                clear_inputs[i].value = "";
+            } 
+        }
+
+        function validar_campos(){
+            let validar = true;
+
+            var cadena_texto = document.getElementsByClassName('text');
+
+            for(var i = 0 ; i < cadena_texto.length ; i++){
+
+                if(cadena_texto[i].value.trim().length <= 0 && !cadena_texto[i].value.trim()){
+                    validar = false;
+                }
+
+            }    
+            return validar;
+        }
+    });
     
 </script>

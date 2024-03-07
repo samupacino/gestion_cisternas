@@ -6,12 +6,14 @@ include RUTA_APP.'/vistas/inc/inc_cisterna/header.php';
 <div id="registro_contenedor" class="font-monospace">
     <div id="registro">
         <h2>Registro de placas de cisternas</h2>
-        <a href="index.php?registro" class="btn btn-secondary">IR A REGISTRO</a>
+        <a href="index.php?cisterna&registro" class="btn btn-secondary">IR A REGISTRO</a>
     </div>
 </div>
 
-
 <div id="container_inicio">
+        <div><a href="index.php" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25)">
+                            RETURN TO MAIN</a>
+        </div>
     <div id="container_inicio_tabla">
         <table id="tabla_inicio" class="table table-hover">
             <thead>
@@ -43,6 +45,7 @@ include RUTA_APP .'/vistas/inc/inc_cisterna/footer.php';
         }
             
     });
+    
 
     window.onbeforeunload = function(e) {
         console.log("SAMUEL DESDE INICIO JAVAS");

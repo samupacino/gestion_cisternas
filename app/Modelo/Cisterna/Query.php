@@ -15,7 +15,7 @@
         }
 
         public function listar_cisterna(){
-            $resultados = NULL;
+            $resultados = [];
       
             $prepare_stm = $this->conexion->prepare("SELECT * FROM PlacaCisterna");
             $prepare_stm->execute();

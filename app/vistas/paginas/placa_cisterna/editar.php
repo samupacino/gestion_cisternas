@@ -9,7 +9,7 @@ include RUTA_APP.'/vistas/inc/inc_cisterna/modal_mensaje.php';
     <div>
         <table id="tabla_editar" class="table table-hover">
 
-                <form action="index.php?editar=<?php echo $resultado_placa[0]['id']; ?>&guardar" method="POST" id="form_editar">
+                <form action="index.php?cisterna&editar=<?php echo $resultado_placa[0]['id']; ?>&guardar" method="POST" id="form_editar">
                     <tr>
                         <td><label for="placa">PLACA</label></td>
                         <td><input type="text" id="placa" name="placa" value="<?php echo $resultado_placa[0]['placa_cisterna']; ?>"></td>
@@ -37,7 +37,7 @@ include RUTA_APP.'/vistas/inc/inc_cisterna/modal_mensaje.php';
                     </tr>  
                     <tr>
                         <td colspan = 2>
-                            <a href="index.php" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25)">
+                            <a href="index.php?cisterna" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" style="--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25)">
                             RETURN TO MAIN</a>
                         </td>
                     </tr>          

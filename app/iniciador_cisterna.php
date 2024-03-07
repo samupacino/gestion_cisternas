@@ -1,11 +1,13 @@
 
 <?php
-
+   
     include'config/configurar.php';
     include'Controlador/Cisterna/Controlador.php';
-   
-    $controlador = new Controlador();
-    
+
+
+    //echo json_encode($controlador->listar());
+    if(isset($_GET['cisterna'])){
+        $controlador = new Controlador();
     if(isset($_GET['listar'])){
         //devuelve response json mediante ajax
         //y el json lo cargamos con javascript
@@ -34,18 +36,14 @@
         
         }else if($_GET['editar']){
             $controlador->editar_placa($_GET['editar']);
+            //echo "HOLA SAMUEL ESTAS EN EDITAR";
         }
         //echo $_POST["button_editar"];
 
-    }else{
-        //muestra el index principal
-        /*
-        $array['placas'] = $controlador->listar();
-        foreach($array['placas'] as $valor){
-            echo $valor['placa_cisterna'] . "   ";
-        }*/
+    }else {
     
-        $controlador->index();
-
+        $controlador->index(); 
     }
+}
+    
 ?>

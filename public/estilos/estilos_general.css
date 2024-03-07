@@ -1,0 +1,18 @@
+
+#head_menu{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#menu_main a{
+    color: black;
+    font-size: 18px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+@media (hover: hover) {
+    #menu_main a:hover{
+        background: #2fcdcd;
+        color: #fff;
+    }
+}
+

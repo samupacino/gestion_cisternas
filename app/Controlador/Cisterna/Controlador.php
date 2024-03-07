@@ -1,8 +1,9 @@
 <?php
     include RUTA_APP.'/Modelo/Cisterna/Query.php';
     
-    
+
     class Controlador{
+
         private $querys;
 
         public function __construct(){
@@ -10,19 +11,20 @@
         } 
 
         public function index(){
+
             include RUTA_APP.'/vistas/paginas/placa_cisterna/inicio.php';
         }
         public function listar(){
-            $resultado_listar;
+            $resultado_listar = [];
             try {
-
+          
                 $resultado_listar = $this->querys->listar_cisterna();
 
             } catch (PDOException $e) {
-
-                http_response_code(500);
+                http_response_code(500);          
+                
                 $resultado_listar = $e->getMessage();
-
+                
             }
             return $resultado_listar;
         }
@@ -68,6 +70,7 @@
             return $resultado_guardar_registro;
         }
         public function editar_placa($id){
+
             $resultado_placa = $this->querys->buscar_placa($id);
             include RUTA_APP.'/vistas/paginas/placa_cisterna/editar.php';
         }
@@ -99,5 +102,6 @@
             }
             return $resultado_guardar_update;
         }
+        
     }
 ?>

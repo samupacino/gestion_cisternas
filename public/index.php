@@ -1,15 +1,18 @@
 <?php
-    include'../app/iniciador_cisterna.php';   
-    //include'../app/iniciador_tracto.php'; 
 
-    use PHPUnit\Framework\TestCase;
-    /*
-    final class Index extends TestCase
-    {
- 
-        public function testOne(): void
-        {
+    if(isset($_GET['cisterna'])){
     
-        }
-    }*/
+        include'../app/iniciador_cisterna.php';
+
+
+    }else if(isset($_GET['tracto'])){
+
+        include'../app/iniciador_tracto.php';
+
+
+    }else{
+      
+        include'../app/principal.php'; 
+     
+    }
 ?>
